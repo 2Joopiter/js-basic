@@ -31,31 +31,19 @@
       --null: 일부러 명시적으로 값을 비워둘 때.
         null은 에러상황은 아니고 추후에 어떤 값을 담을 변수를 만들긴 해야되는데 담을 값이 없을 때 null을 할당해줌 (아무 값도 할당하지 않으면 에러이기 때문)
       
-      객체의 property에 변수연결하는 법
+    -자바스크립트 데이터의 자료형 확인하는 법
+    typeof 값 : 해당값의 자료형이 문자값으로 반환
+        */
 
+    let txt = 'hello';
+    let num = 3;
+    let isFemale = false;
+    let error;
+    let colors = ['red', 'green', 'blue'];
+    let student = { name: 'daved', age: 20, isFemale: false }
+    let data = null;
 
-    */
-
-    let test;
-    console.log(test);
-
-    let youtubeData = null;
-    console.log(youtubeData);
-    youtube = '추후에 담길 유튜브 데이터';
-
-
-    /* ES6이후로 객체의 property key값을 변수로 치환 가능해짐
-    객체의 property key를 대괄호로 묶으면 변수 활용 가능.
-    대괄호 전까지는 그냥 문자값인데 대괄호로 묶고, 변수를 선언해주면 치환이 가능함
-    */
-
-    let name = 'abc';
-
-    const student = {
-      [name]: 'David'
-    }
-    console.log(student.abc);
-
+    console.log(typeof isFemale);
   </script>
 </body>
 
