@@ -11,25 +11,50 @@
 <body>
   <script>
     /*
-    객체: 배열처럼 여러개의 값을 그룹화 할 때 활용 (자료구조가 복잡할 때)
+    자바스크립트의 자료형 (Data Type)
+    - 원시형 자료 (Primitive type)
+      -- 문자열 (String)
+      -- 숫자 (Number)
+      -- 논리형자료 (Boolean) ; true, false
+      -- undefined (undefined)
+
+    - 참조형 자료 (reference type)
+      -- 배열 (Array:Object) 
+      -- 객체 (Object)
+      -- null (Object)
+
+    - undefined와 null의 차이점 : 특정 값이 없을 때 들어가는 자료형.
+      --Undefined: 변수를 선언하고 값을 할당하지 않았을 시스템이 자동으로 넣어주는 값
+        특정 값을 찍었을 때 undefined가 나오는 경우는 에러상황: 있어야 될 메모리값이 없을 떄
+            let test;
+            console.log(test);
+      --null: 일부러 명시적으로 값을 비워둘 때.
+        null은 에러상황은 아니고 추후에 어떤 값을 담을 변수를 만들긴 해야되는데 담을 값이 없을 때 null을 할당해줌 (아무 값도 할당하지 않으면 에러이기 때문)
+      
+      객체의 property에 변수연결하는 법
+
+
     */
 
-    const iphone = {
-      price: 1000, // 객체 안에 있는 정보 하나의 덩어리를 property라고 함 (1줄)
-      color: 'white', // 값(key): value (1000, 'white', false)
-      isSale: false
+    let test;
+    console.log(test);
+
+    let youtubeData = null;
+    console.log(youtubeData);
+    youtube = '추후에 담길 유튜브 데이터';
+
+
+    /* ES6이후로 객체의 property key값을 변수로 치환 가능해짐
+    객체의 property key를 대괄호로 묶으면 변수 활용 가능.
+    대괄호 전까지는 그냥 문자값인데 대괄호로 묶고, 변수를 선언해주면 치환이 가능함
+    */
+
+    let name = 'abc';
+
+    const student = {
+      [name]: 'David'
     }
-
-    console.log(iphone);
-
-    //객체값 뽑아낼때
-    console.log(iphone.price);
-    console.log(iphone['color'])
-
-    //객체값 추가할 때 //객체명.원하는 정보명 = '''
-    iphone.weight = '1kg';
-    console.log(iphone);
-
+    console.log(student.abc);
 
   </script>
 </body>
