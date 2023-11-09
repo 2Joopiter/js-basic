@@ -120,6 +120,32 @@
     }
     introduce2();
 
+    //인수값이 있을 때에만 실행되는 함수 작성시
+    function test(name) {
+      if (name) console.log(name + '님 반갑습니다.')
+    };
+    test();
+
+    function test2(name) { name && console.log(name + '님 반갑습니다.'); }
+    test2();
+
+    /*
+    function test3(name) {
+      let result = '';
+      name && (result = name;) // 연산자가 여러개 들어갈 경우에는 연산을 괄호로 묶어서 우선순위 지정이 필요함. 지금 상황에서는 &&연산자 뒤에 대입 연산자가 들어올 수 없으므로 대입 연산구문을 괄호처리해서 그룹화
+      return result;
+    }
+    */
+
+    function test4(name) {
+      let defaltName = '아무개';
+      !name && (name = defaltName);
+      console.log(name + '님 반갑습니다.');
+    }
+    test4();
+
+
+
 
 
 
