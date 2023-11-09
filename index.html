@@ -88,8 +88,42 @@
 
     heavyWork(''); //''는 빈칸으로 인식, false 처리. space를 쳐서 공백을 넣어주면 true처리(글자로 인식함)
 
-    // console.log로 감싼다는 말은 그 가로 안의 값을 찍어보고 싶을 때. (콘솔탭에 띄워주는 것)
-    // 함수호출은 
+    // MISSION3: 이름값이 인수로 전달되면 인사말 출력, 이름값 미전달시 경고문 출력(조건문, 함수)
+
+    /* function name(txt1) { console.log(txt1); }
+
+    txt1 = '김영희'
+    console.log(txt1)
+    */
+
+    function introduce(name) {
+      if (name) { console.log(name + '님 반갑습니다.') }
+      else { console.log('사람이름을 인수로 넣어주세요.') }
+    }
+
+    introduce('홍길동');
+
+    // 함수호출은 통로에 값을 넣어주는 역할. 함수가 실행될 뿐임. 
+    // console.log는 결과값을 보는 양식. 
+
+    /*
+    삼항연산자: If else문을 3개의 항을 이용해서 간소화한 형태
+    공식: 조건식 ? 조건식이 true일 때 실행할 구문 : 조건식이 false일 때 실행할 구문
+
+    -삼항연산자를 쓰는 경우는 조건식의 true/false 결과값에 따라 실행할 구문이 한줄의 간단한 구문일 때
+    -리액트 개발에서 JSX라는 가상돔 출력 구문 안쪽에는 조건문을 삼항연산자만 사용 가능
+    */
+
+    //삼항연산자로 고도화시킨 함수 예시
+    function introduce2(name) {
+      name ? console.log(name + '님 반갑습니다.') : console.log('사람이름을 인수로 넣어주세요')
+    }
+    introduce2();
+
+
+
+
+
 
   </script>
 </body>
