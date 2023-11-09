@@ -10,82 +10,20 @@
 
 <body>
   <script>
-    /*
-    함수의 종류
-      -익명함수: 함수에 이름이 없는 형태 (변수에 익명함수를 대입해서 주로 호출)
-      -기명함수: 함수에 이름이 있는 형태 (function 키워드로 선언하고 호출)
-
-      -선언적함수
-      :function 키워드로 이름을 붙여서 선언하는 형태
-      :함수의 호출 위치가 자유로움(함수 선언 이전에도 호출 가능(위에도 쓸 수 있다는 뜻임 호출을))
-      :선언적 함수가 선언되기 전에 호출 가능한 이유-자바스크립트 파일을 실행하기 이전에 판단단계에서 미리 변수와 선언적함수를 우선적으로 해석하기 때문에 호출 가능
-
-      -대입형함수 
-      :일반 변수에 일반함수를 대입하는 형태
-      :함수가 변수에 대입되는 형태이기 때문에 함수가 대입된 이후에만 호출가능
-
-      -즉시실행함수: 익명함수 형태로 함수를 정의하자마자 자기자신을 즉시 호출하는 함수형
-
-      -화살표함수 (ES6 이후에 생김)
-        :익명함수를 간소화처리 (내부적으로 this객체를 생성하지 않는 함수)
-
-    */
-    console.log(plus(2, 3)) // 선언적함수임
-
     function plus(num1, num2) {
       return num1 + num2;
     }
 
-    //대입형함수 (위에서 호출 불가능. 대입 이후에만 호출 가능)
+    const result = plus(2, 3); // result로 값을 전달해주고 return으로 내보내서 log로 출력
+    console.log(result);
 
-    const minus = function (num1, num2) {
-      return num1 - num2;
+    // 함수 안쪽에서 조건문으로 함수 강제 종료하는 법
+    function introduce(name) {
+      if (!name) return;
+      console.log(name + '님 반갑습니다.');
     }
-    console.log(minus(5, 2))
-
-    //화살표함수 (대입형 함수를 축약한 형태)
-    const multiply = (num1, num2) => {
-      return num1 * num2;
-    }
-    const result = multiply(2, 3)
-    console.log('multiply', result)
-    console.log('multiply', (multiply(2, 3)));
-
-    //콘솔은 콤마를 구분해서 여러개를 같이 호출할 수 있음. 
-
-    //화살표함수에서 return문을 생략한 상태 예시
-    /* const multiply2 = (num1, num2) => {
-      console.log('화살표함수 리턴 축약문')
-      return num1 * num2;
-    }
-    console.log('multiply2', multiply2(3, 5)); */
-
-    const multiply2 = (num1, num2) => (
-      num1 * num2
-    ) // 중괄호를 소괄호로 묶어주면 return문을 제거해도 특정값을 도출하는 연산식이 있으면 해당값 자동 리턴 
-    console.log('multiply2', multiply2(3, 5));
-
-
-    //여기서 한줄형태의 화살표함수면 맨 뒤 괄호는 생략할 수 있어서 더 축약 가능
-    const multiply3 = (num1, num2) => num1 * num2;
-
-    // 굳이 리턴할 필요가 없는 함수라도 코드의 간결화를 위해 축약하는 경우도 있음
-
-    const introduce3 = name => name && console.log(name + '님 반갑습니다.') // 화살표 함수 맨 앞에도 하나일 경우 괄호 생략 가능 (name)부분
-    introduce3('홍길동');
-
-
-
-
-
-
-
-
-
-
-
-
-
+    introduce('홍길동');
+    introduce();
 
   </script>
 </body>
