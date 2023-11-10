@@ -19,10 +19,12 @@
 
     배열.forEach(함수);
     -반복기능만 있음
+    -기존 배열 복사 기능이 없음
+    -유사배열도 반복 가능 (DOM요소 반복 가능)
 
     배열.map(함수);
     -반복기능에 추가로 기존의 배열값을 복사해서 return하는 기능이 있음
-
+    -순수배열만 반복 가능 (DOM요소 반복 불가능)
     */
 
     const colors = ['red', 'blue', 'yellow'] // 이게 고차함수
@@ -33,6 +35,25 @@
       console.log('-------');
     });
     // 이건 콜백함수
+
+    /*
+    forEach의 경우 결과값이 안 나옴
+    const newColors = colors.forEach((data, index) => {
+      return data + index
+    })
+
+    console.log(newColors);
+    */
+
+    const newColors2 = colors.map((data, index) => {
+      return data + index
+    })
+
+    console.log(newColors2);
+
+    //map은 복사기능이 있어서 값이 표시됨 
+    //(참조형자료는 값이 복사가 안됨. 참조링크(위치)만 복사 됨)
+
 
   </script>
 </body>
