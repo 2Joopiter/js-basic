@@ -10,49 +10,120 @@
 
 <body>
   <script>
-    /*
-    -배열반복 (forEach, map)
-
-    callback: 함수에 인수로 전달되는(들어가는) 함수
-    high order function(hof.고차함수): 인수로 함수를 받거나 혹은 return값으로 함수를 내보내는 부모함수
-    // 이 두 개념은 반대개념. 
-
-    배열.forEach(함수);
-    -반복기능만 있음
-    -기존 배열 복사 기능이 없음
-    -유사배열도 반복 가능 (DOM요소 반복 가능)
-
-    배열.map(함수);
-    -반복기능에 추가로 기존의 배열값을 복사해서 return하는 기능이 있음
-    -순수배열만 반복 가능 (DOM요소 반복 불가능)
-    */
-
-    const colors = ['red', 'blue', 'yellow'] // 이게 고차함수
-
-    colors.forEach((data, index) => {
-      console.log('첫번째 인수 활용', data);
-      console.log('두번째 인수 활용', colors[index]);
-      console.log('-------');
-    });
-    // 이건 콜백함수
 
     /*
-    forEach의 경우 결과값이 안 나옴
-    const newColors = colors.forEach((data, index) => {
-      return data + index
-    })
-
-    console.log(newColors);
+    기존 참조형자료 (배열, 객체)는 변수로 복사시 원본복사가 안 됨 (shallow copy: 얕은 복사)
+    -기존배열을 단순히 변수에 옮겨담을시 
     */
 
-    const newColors2 = colors.map((data, index) => {
-      return data + index
-    })
+    const colors = ['red', 'green', 'blue'];
+    const newColors = colors;
+    //newColors[0] = 'hotpink'; => 이 경우에 new만 hotpink로 바뀌어야 될 것 같지만 colors도 둘다 바뀜
 
-    console.log(newColors2);
+    console.log('colors', colors)
+    console.log('newColors', newColors)
+    console.log('----------------')
 
-    //map은 복사기능이 있어서 값이 표시됨 
-    //(참조형자료는 값이 복사가 안됨. 참조링크(위치)만 복사 됨)
+
+
+
+
+
+
+
+
+    /* 전개연산자 (Spread Operator) (...배열명)
+    -참조형자료를 완전 복사 (Deep Copy, 불변성 유지됨(별개의 값으로 독립적 복사))
+    -heap memory에 있는 값을 물리적으로 복사
+    */
+
+    const interests = ['game', 'movie', 'cartoon'];
+    console.log(...interests);
+    const newInterests = [...interests];
+    newInterests[2] = 'reading';
+
+    console.log('interests', interests)
+    console.log('newInterests', newInterests);
+    console.log('-----------------')
+
+
+    /*
+
+    const arityaum = ['leeknow', 'seungmin', 'i.n']
+    const arikarihan = [...arityaum]
+    arikarihan[1] = 'han';
+
+    console.log('arityaum', arityaum);
+    console.log('arikarihan', arikarihan);
+    */
+
+    //MISSION 객체를 만들고 객체 전개를 통해서 2번째 객체만 값을 하나 바꿔보기
+
+    /*
+    const person1 = { name: 'andy', age: 20, address: 'seoul' }
+    //const person2 = { name: 'andy', age: 20, address: 'busan' }
+
+    // 위 식을 완전복사하기
+
+    const person2 = { ...person1 };
+    person2.age = 21;
+    person2.address = 'busan';
+
+    console.log('person1', person1);
+    console.log('person2' person2);
+
+    //
+
+    /* 객체를 합치는 방법
+
+    const student1 = {
+      name: 'Michael',
+      age: 20,
+    }
+
+    const extraInfo = {
+      name: 'Michael',
+      age: 21,
+      hobby: 'game',
+    }
+
+    */
+
+    //작년 회원가입 정보값을 유지하면서 올해 회원가입 정보값을 업데이트+새로운 데이터 추가
+
+    const student1 = {
+      name: 'Michael',
+      age: 20,
+    }
+
+    const extraInfo = {
+      name: 'Michael',
+      age: 21,
+      hobby: 'game',
+    }
+
+    const newStudent = { ...student1, ...extraInfo };
+    console.log('student1', student1);
+    console.log('extraInfo', extraInfo);
+    console.log('newStudent', newStudent);
+    console.log('----------------')
+
+    newStudent.name = 'andy';
+    newStudent.hobby = 'reading';
+
+    console.log('student1', student1);
+    console.log('extraInfo', extraInfo);
+    console.log('newStudent', newStudent);
+
+
+
+    //전개연산자를 이용하면 원본을 유지하면서 기존 2개의 객체값을 합칠때 유용
+
+
+
+
+
+
 
 
   </script>
